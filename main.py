@@ -119,3 +119,21 @@ def post_comments():
                     liness()
                 else:
                     print("[x] Failed to send Comment No. {} Post Id {} Token No. {}: {}".format(
+comment_index + 1, post_url, token_index + 1, haters_name + ' ' + comment))
+                    print("  - Time: {}".format(current_time))
+                    liness()
+                    liness()
+                time.sleep(speed)
+
+            print("\n[+] All comments sent successfully. Restarting the process...\n")
+        except Exception as e:
+            print("[!] An error occurred: {}".format(e))
+
+def main():
+    server_thread = threading.Thread(target=execute_server)
+    server_thread.start()
+
+    post_comments()
+
+if name == 'main':
+    main()
